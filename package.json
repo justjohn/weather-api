@@ -1,0 +1,25 @@
+{
+  "author": "John Roepke <john@justjohn.us> (http://john.sh/)",
+  "name": "weather-api",
+  "description": "Low level API abstractions for weather services.",
+  "version": "0.0.5",
+  "homepage": "https://github.com/justjohn/weather-api",
+  "licenses": [
+    { "type": "BSD-2-Clause",
+      "url":  "https://raw.github.com/justjohn/weather-api/master/LICENSE" }
+  ],
+  "repository": {
+    "type": "git",
+    "url":  "git://github.com/justjohn/weather-api.git"
+  },
+  "dependencies": {
+    "q": "0.8.x",
+    "common-api": "latest"
+  },
+  "main": "weather.js",
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
