@@ -12,38 +12,6 @@ WeatherUnderground.prototype = new API({
     urlTransform: function(url) { return url.replace('{api_key}', this.api_key); }
 });
 
-WeatherUnderground.prototype.call2 = function(path) {
-	var deferred = Q.defer();
-
-	var options = {
-	  host: 'api.wunderground.com',
-	  port: 80,
-	  path: '/api/' + this.api_key + path,
-	  method: 'GET'
-	};
-
-	var req = http.request(options, function(res) {
-		var output = '';
-		res.setEncoding('utf8');
-		res.on('data', function (chunk) {
-			output += chunk;
-		});
-
-		res.on('end', function () {
-			var json = JSON.parse(output);
-			deferred.resolve(json);
-		});
-	});
-
-	req.on('error', function(e) {
-	  	deferred.reject('problem with request: ' + e.message);
-	});
-
-	req.end();
-
-	return deferred.promise;
-};
-
 WeatherUnderground.prototype.geoforecast = function() {
 	var deferred = Q.defer();
 
