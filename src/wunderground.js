@@ -15,7 +15,7 @@ WeatherUnderground.prototype = new API({
 WeatherUnderground.prototype.geoforecast = function() {
 	var deferred = Q.defer();
 
-	this.call('/conditions/forecast/q/autoip.json').then(function(data) {
+	this.call('/conditions/forecast/hourly/q/autoip.json').then(function(data) {
 		deferred.resolve(data);
 
 	}, function(err) {
@@ -56,7 +56,7 @@ WeatherUnderground.prototype.queryForecast = function(path) {
 
 WeatherUnderground.prototype.forecast = function(path) {
 	var deferred = Q.defer(),
-		url = '/conditions/forecast' + path  + '.json';
+		url = '/conditions/forecast/hourly' + path  + '.json';
 
 	this.call(url).then(function(data) {
 		deferred.resolve(data);
